@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions & Arrays Assignment</title>
+  </head>
+  <body>
+    <h1>Student List</h1>
+
+    <!-- Button to display all students -->
+    <button onclick="displayStudents()">Show All Students</button>
+
+    <br /><br />
+
+    <!-- List to display student names -->
+    <ul id="studentList"></ul>
+
+    <hr />
+
+    <!-- Search Section -->
+    <h2>Search Student</h2>
+    <input type="text" id="searchInput" placeholder="Enter student name" />
+    <button onclick="searchStudent()">Search</button>
+
+    <p id="searchResult"></p>
+
+    <script>
+      // Array of student names
+      let students = ["Rahul", "Anjali", "Aman", "Priya", "Suresh"];
+
+      // Function to display all student names
+      function displayStudents() {
+        let list = document.getElementById("studentList");
+        list.innerHTML = ""; // Clear old list
+
+        // Loop through array and create list items
+        for (let i = 0; i < students.length; i++) {
+          let li = document.createElement("li");
+          li.innerText = students[i];
+          list.appendChild(li);
+        }
+      }
+
+      // Function to search for a student name
+      function searchStudent() {
+        let searchName = document.getElementById("searchInput").value;
+        let result = document.getElementById("searchResult");
+
+        // Check if name exists in array
+        if (students.includes(searchName)) {
+          result.innerText = searchName + " is found in the list.";
+        } else {
+          result.innerText = searchName + " is not found in the list.";
+        }
+      }
+    </script>
+  </body>
+</html>
